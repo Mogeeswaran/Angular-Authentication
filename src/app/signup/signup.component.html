@@ -1,0 +1,34 @@
+<h2 class="alignheading">Registration Page</h2>
+<form class="container" [formGroup]="SigninForm" (ngSubmit)="onSubmit(SigninForm)">
+    <div>
+        <div class="form-group col-md-5">
+            <label for="exampleInputfname">Frist Name</label>
+            <input type="text" class="form-control" id="exampleInputfname" aria-describedby="emailHelp" formControlName="fname"
+                placeholder="Enter frist name" name="fname"  [ngClass]="{ 'is-invalid': submitted && f.fname.errors }">
+            <div *ngIf="submitted && f.fname.errors" class="invalid-feedback">
+                <div *ngIf="f.fname.errors.required">First Name is required</div>
+            </div>
+        </div>
+        <div class="form-group col-md-5">
+            <label for="exampleInputlname">Last Name</label>
+            <input type="email" class="form-control" 
+                placeholder="Enter last name" name="lname" formControlName="lname" [ngClass]="{ 'is-invalid': submitted && f.lname.errors }" />
+            <div *ngIf=" submitted && f.lname.errors" class="invalid-feedback">
+                <div *ngIf="f.lname.errors.required">Last Name is required</div>
+            </div>
+        </div>
+        <div class="form-group col-md-5">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" formControlName="Email"
+                placeholder="Enter email" name="Email"  [ngClass]="{ 'is-invalid': submitted && f.Email.errors }">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+                <div *ngIf="f.Email.errors.required">Email is required</div>
+                <div *ngIf="f.Email.errors.email">Enter the Valid Email</div> 
+            </div>
+        </div>
+        <div class="form-group col-md-5">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>
